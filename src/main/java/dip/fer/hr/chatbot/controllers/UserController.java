@@ -27,7 +27,7 @@ public class UserController {
         return userRepository.findById(id);
     }
 
-    @PostMapping("/users")
+    @PostMapping("/user")
     public UserEntity createUser(@RequestBody UserEntity user) {
         return userRepository.save(user);
     }
