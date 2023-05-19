@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -20,12 +21,12 @@ public class UserController {
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
-/*
+
     @GetMapping("/users/{id}")
-    public UserEntity getUserById(@PathVariable Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found with id " + id));
+    public Optional<UserEntity> getUserById(@PathVariable Long id) {
+        return userRepository.findById(id);
     }
-*/
+
     @PostMapping("/users")
     public UserEntity createUser(@RequestBody UserEntity user) {
         return userRepository.save(user);
