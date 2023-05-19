@@ -1,0 +1,11 @@
+version: '1.0'
+services:
+  postgres-server:
+    image: postgres
+    container_name: postgres-docker-server-1
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: 'chatbotDB'
+      POSTGRES_USER: 'dbAdmin'
+      POSTGRES_PASSWORD: 'secretPassword1'
